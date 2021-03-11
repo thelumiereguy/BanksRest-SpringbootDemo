@@ -6,7 +6,16 @@ data class Bank(
     val accountNumber: String,
     val trust: Double,
     val transactionFee: Int
-)
+) {
+
+    fun toBankEntity(): BankEntity {
+        return BankEntity(
+            accountNumber = accountNumber,
+            trust = trust,
+            transactionFee = transactionFee
+        )
+    }
+}
 
 @Entity
 data class BankEntity(
@@ -22,4 +31,12 @@ data class BankEntity(
 
     @Column(nullable = false)
     val transactionFee: Int = 0
-)
+) {
+    fun fromEntity(): Bank {
+        return Bank(
+            accountNumber,
+            trust,
+            transactionFee
+        )
+    }
+}

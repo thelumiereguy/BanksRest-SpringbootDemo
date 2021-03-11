@@ -2,9 +2,12 @@ package com.thelumiereguy.spring.springDemo.datasource.fake
 
 import com.thelumiereguy.spring.springDemo.datasource.IBankDataSource
 import com.thelumiereguy.spring.springDemo.model.Bank
+import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.cglib.core.EmitUtils
 import org.springframework.stereotype.Repository
+import javax.annotation.sql.DataSourceDefinition
 
-
+@Qualifier("FakeBankDataSource")
 class FakeBankDataSource : IBankDataSource {
 
     private val banks = mutableListOf(

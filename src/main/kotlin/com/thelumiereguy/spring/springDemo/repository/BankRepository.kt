@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface BankRepository : JpaRepository<BankEntity, Long> {
 
-    override fun findAll(): MutableList<BankEntity>
+    fun findBankEntityByAccountNumber(accountNumber: String): BankEntity
+
+    fun deleteBankEntityByAccountNumber(accountNumber: String)
 }
